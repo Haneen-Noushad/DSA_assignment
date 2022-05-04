@@ -68,7 +68,7 @@ public class adminLogin implements ActionListener {
         String checkUser = usertextALogin.getText();
         String checkPass = passtextALogin.getText();
         if(e.getSource()==buttonALogin) {
-            if ((checkUser.equals("Jasim")||checkUser.equals("Haneen")||checkUser.equals("Hirash")||checkUser.equals("Prithvi"))&& checkPass.equals("1234"))
+            if ((checkUser.equals("Althaf")||checkUser.equals("Haneen")||checkUser.equals("Hirash")||checkUser.equals("Prithvi"))&& checkPass.equals("1234"))
             {
                 JOptionPane.showMessageDialog(frameALogin,"LOGIN SUCCESSFUL");
                 new adminMenu();

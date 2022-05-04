@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -72,6 +73,7 @@ public class customer {
                 String checkname = namecustext.getText();
                 String checkId = idcustext.getText();
                 String checkpass = passcustext.getText();
+                checkpass=doHashing(checkpass);
                 int flag = 0;
                 DoubleLL list=new DoubleLL();
                 ArrayList<String> tempArray1 = new ArrayList<String>();
@@ -191,11 +193,11 @@ public class customer {
         passlabelCusModify.setForeground(Color.white);
         passlabelCusModify.setFont(new Font("SansSerif",Font.PLAIN,20));
 
-        idtext.setBounds(150, 30, 250, 25);
+        idtext.setBounds(170, 30, 250, 25);
         panelCusModify.add(idtext);
-        nametext.setBounds(150, 90, 250, 25);
+        nametext.setBounds(170, 90, 250, 25);
         panelCusModify.add(nametext);
-        passtext.setBounds(150, 150, 250, 25);
+        passtext.setBounds(170, 150, 250, 25);
         panelCusModify.add(passtext);
 
         CusModify.setBounds(350,325,100,40);
@@ -273,12 +275,13 @@ public class customer {
                 String checkId2 = idtext.getText();
                 String checkname = nametext.getText();
                 String checkpass = passtext.getText();
+                checkpass=doHashing(checkpass);
 
                 ArrayList<String> tempArray = new ArrayList<String>();
                 DoubleLL list2=new DoubleLL();
                 String line;
                 int flag = 0;
-                String[] arr;
+                String[] arr=new String[4];
 
                 if (checkname.trim().isEmpty() || checkId2.trim().isEmpty() || checkpass.trim().isEmpty()) {
                     info.setText("MORE INFORMATION TO BE ENTERED");
@@ -547,4 +550,31 @@ public class customer {
 
 
     }
+ 
+    public static String doHashing (String pass){
+                    
+                try{
+                    
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    messageDigest.update(pass.getBytes());
+                    byte[] resultByteArray = messageDigest.digest();
+                    StringBuilder sb = new StringBuilder();
+                    
+                    for(byte b : resultByteArray){
+                    
+                    sb.append(String.format("%02x",b));
+                    }
+                    String p = sb.toString().substring(0, 15);              
+                    return p;
+                    }  
+                
+                catch (Exception e){
+                      e.printStackTrace(); }
+               
+                return "";  }
+
+
+
+
+
 }

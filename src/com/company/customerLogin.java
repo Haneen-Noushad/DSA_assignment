@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileReader;
 import java.util.Scanner;
+import java.security.MessageDigest;
 
 public class customerLogin implements ActionListener {
     JPanel panelCLogin = new JPanel();
@@ -58,19 +59,53 @@ public class customerLogin implements ActionListener {
         frameCLogin.setResizable(false);
     }
 
-
+    public static String doHashing (String passssword){
+                    
+                try{
+                    
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    messageDigest.update(passssword.getBytes());
+                    byte[] resultByteArray = messageDigest.digest();
+                    StringBuilder sb = new StringBuilder();
+                    
+                    for(byte b : resultByteArray){
+                    
+                    sb.append(String.format("%02x",b));
+                    }
+                    String p = sb.toString().substring(0, 15); 
+                    return p;
+                    }  
+                
+                catch (Exception e){
+                      e.printStackTrace(); }
+               
+                return "";  }
+    
+    
+    
+    
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String checkUser = usertextCLogin.getText();
         String checkPass = passtextCLogin.getText();
+        
+         checkPass=doHashing(checkPass);
+                    
+         System.out.print(checkPass);
+                
+               
+        
+        
         if(e.getSource()==buttonCLogin) {
             try {
                 FileReader fr = new FileReader("customer.txt");
                 Scanner reader1 = new Scanner(fr);
                 String line;
                 String[] arr;
-
-                while (reader1.hasNextLine()) {
+//arr [2] is passs
+                    while (reader1.hasNextLine()) {
                     line = reader1.nextLine();
                     arr = line.split(",");
                     if (arr[0].equals(checkUser)&&arr[2].equals(checkPass))

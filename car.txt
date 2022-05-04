@@ -1,11 +1,18 @@
-435,LandCruiser,black,2019,230,No
-2456,Altima,black,2015,170,No
-7856,Sentra,white,2020,150,No
-14567,Corolla,grey,2018,130,No
-4345,Maxima,Green,2013,190,No
-5667,GTR,White,2010,300,No
-7654,Patrol,Black,2020,230,No
-14678,Camry,white,2016,180,No
-6543,Pathfinder,white,2012,200,No
-16779,XTrail,Black,2015,175,No
-6789,Sunny,white,2018,120,No
+4352,LandCruiser,Black,2019,290,No
+2456,Altima,Black,2015,170,No
+7856,Sentra,White,2020,150,No
+1456,Corolla,Grey,2018,100,No
+4345,Maxima,Blue,2013,220,No
+7654,Patrol,Black,2020,300,No
+14678,Camry,White,2016,180,No
+6543,Pathfinder,White,2012,210,No
+1677,XTrail,Black,2015,175,No
+5643,Rav4,White,2018,190,No
+6789,Sunny,White,2018,70,No
+3634,Micra,Red,2016,65,No
+4534,Kia Picanto,Red,2016,65,No
+3634,Micra,Red,2016,65,No
+3612,Tiida,Red,2016,100,No
+5362,FJ Cruiser,Yellow,2012,250,No
+5667,GTR,Orange,2010,650,No
+
