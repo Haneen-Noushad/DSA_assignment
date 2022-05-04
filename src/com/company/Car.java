@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Car {
-    public void addCar()
+    public void addCar_enqueue()
     {
         JFrame frameCAdd = new JFrame("Add car");
         JPanel panelCAdd = new JPanel();
